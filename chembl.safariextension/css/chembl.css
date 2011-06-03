@@ -1,0 +1,206 @@
+.ui-helper-clearfix:after { content: "."; display: block; height: 0; clear: both; visibility: hidden; }
+.ui-helper-clearfix { display: inline-block; }
+* html .ui-helper-clearfix { height:1%; }
+.ui-helper-clearfix { display:block; }
+
+.__chembl-dialog {
+	-webkit-user-select: none !important;
+	-webkit-box-shadow: 0 0 15px rgba(0,0,0,0.5) !important;
+	background-color: #fff !important;
+	background: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#fff), to(#f5f5f5)) !important;
+	border: 1px solid #aaa !important;
+	border-radius: 5px !important;
+	color: #222 !important;
+	font-family: Verdana, Arial, sans-serif !important;
+	font-size: 11px !important;
+	line-height: 12px !important;
+	margin:  0px !important;
+	overflow: hidden !important;
+	padding:  2px !important;
+}
+
+.__chembl-dialog-titlebar {
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(0, #dfdfdf), color-stop(1, #cccccc)) !important;
+	border: 1px solid #aaa !important;
+	border-radius: 5px !important;
+	color: #222 !important;
+	cursor: move !important;
+	display: block !important;
+	font-weight: bold !important;
+	margin: 0px !important;
+	padding: 4px 8px !important;
+	position: relative !important;
+}
+
+.__chembl-dialog-title {
+	background-color: transparent !important;
+	background-image: none !important;
+	border: 0 !important;
+	color: #444644 !important;
+	font-family: Verdana, Arial, sans-serif !important;
+	font-size: 11px !important;
+	line-height: 12px !important;
+	float: left !important;
+	margin: 1px 16px 1px 0 !important;
+	overflow: hidden !important;
+	text-shadow: #fff 0px 1px 0px !important;
+	white-space: nowrap !important;
+}
+
+.__chembl-dialog-titlebar-close {
+	background-color: transparent !important;
+	background-image: none !important;
+	border: 0 !important;
+	border-radius: 4px !important;
+	color: #222 !important;
+	cursor: pointer !important;
+	display: block !important;
+	height: 18px !important;
+	margin:  -10px 0 0 0 !important;
+	padding: 1px !important;
+	position: absolute !important;
+	right: 1px !important;
+	top: 50% !important;
+	width: 19px !important;
+}
+
+.__chembl-dialog-titlebar-close:hover {
+	padding: 0px !important;
+	background: -webkit-gradient(linear, left top, left bottom,
+    	color-stop(0.45, rgb(238,238,238)),
+    	color-stop(0.5, rgb(208,208,208)),
+    	color-stop(1, rgb(217,217,217))) !important;
+	border: 1px solid #999 !important;	
+}
+
+.__chembl-dialog-titlebar-close:active {
+	padding: 0px !important;
+	background: -webkit-gradient(linear, left top, left bottom,
+    	color-stop(0, rgb(128,128,128)),
+    	color-stop(1, rgb(178,178,178))) !important;
+	border: 1px solid #666 !important;
+}
+
+.__chembl-icon-closethick {
+	background-color: transparent !important;
+	background-image: url(images/__chembl-icons_454545_256x240.png) !important;
+	background-position: -96px -128px !important;
+	background-repeat: no-repeat !important;
+	border: 0 !important;
+	cursor: pointer !important;
+	display: block !important;
+	height: 16px !important;
+	margin: 1px 2px 1px 1px !important;
+	overflow: hidden !important;
+	text-decoration: none !important;
+	text-indent: -99999px !important;
+	width: 16px !important;
+}
+
+.__chembl-icon-closethick:hover {
+	background-image: url(images/__chembl-icons_222222_256x240.png) !important;
+}
+
+.__chembl-dialog-content {
+	background-color: #fff !important;
+	border: 1px solid #ccc !important;
+	border-radius: 4px !important;
+	cursor: auto !important;
+	display: block !important;
+	margin: 3px 1px !important;
+	overflow: hidden !important;
+	padding: 0px !important;
+	position: relative !important;
+	zoom: 1 !important;
+	white-space: nowrap !important;
+}
+
+.__chembl-dialog-content div {
+	background: none !important;
+	border: 0 !important;
+	cursor: auto !important;
+	font-size: 11px !important;
+	line-height: 12px !important;
+	margin: 60px auto !important;
+	overflow: hidden !important;
+	padding: 0px !important;
+	position: relative !important;
+	white-space: nowrap !important;
+	text-align: center;
+}
+
+.__chembl-dialog-content img {
+	margin: 0 0 0 6px !important;
+}
+
+.__chembl-dialog-content img:nth-child(-n+1) {
+	margin: 0 !important;
+}
+
+.__chembl-dialog-buttonpane {
+	background: none !important;
+	border: 0 !important;
+	cursor: auto !important;
+	display: block !important;
+	margin: 0 0 3px 0 !important;
+	padding: 0 !important;
+	text-align: center !important;
+}
+
+.__chembl-dialog-buttonset {
+	background: none !important;
+	border: 0 !important;
+	cursor: auto !important;
+	display: block !important;
+	float: none !important;
+	margin: 0px !important;
+	padding: 0px !important;
+}
+
+.__chembl-dialog button {
+	cursor: pointer !important;
+	font-family: Verdana, Arial, sans-serif !important;
+	font-size: 10px !important;
+	line-height: 10px !important;
+	outline: none !important;
+	padding: 1px;
+	text-shadow: #fff 0px 1px 0px !important;
+}
+
+.__chembl-dialog-button-view {
+	-webkit-box-shadow: inset 0 0 2px #fff !important;
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(0, #f2f2f2), color-stop(1, #c9c9c9)) !important;
+	border: 1px solid #aaa !important;
+	padding: 2px !important;
+	border-radius: 1px !important;
+	margin: 0 5px !important;
+}
+
+.__chembl-dialog-button-prev, .__chembl-dialog-button-next {
+	background-color: transparent !important;
+	background-repeat: no-repeat !important;
+	border: 0 !important;
+	height: 16px !important;
+	margin: 0px !important;
+	overflow: hidden !important;
+	text-indent: -99999px !important;
+	width: 16px !important;
+}
+
+.__chembl-dialog-button-prev {
+	background-image: url(images/prev.png) !important;
+}
+
+.__chembl-dialog-button-next {
+	background-image: url(images/next.png) !important;
+}
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>Author</key>
+	<string>Matt Swain</string>
+	<key>CFBundleDisplayName</key>
+	<string>ChEMBL Search</string>
+	<key>CFBundleIdentifier</key>
+	<string>com.macosxtips.chembl</string>
+	<key>CFBundleInfoDictionaryVersion</key>
+	<string>6.0</string>
+	<key>CFBundleShortVersionString</key>
+	<string>1.0</string>
+	<key>CFBundleVersion</key>
+	<string>1.0</string>
+	<key>Chrome</key>
+	<dict>
+		<key>Context Menu Items</key>
+		<array>
+			<dict>
+				<key>Command</key>
+				<string>chemblSearch</string>
+				<key>Identifier</key>
+				<string>chemblSearch</string>
+				<key>Title</key>
+				<string>ChEMBL Search</string>
+			</dict>
+		</array>
+		<key>Global Page</key>
+		<string>global.html</string>
+	</dict>
+	<key>Content</key>
+	<dict>
+		<key>Scripts</key>
+		<dict>
+			<key>End</key>
+			<array>
+				<string>js/injected.js</string>
+			</array>
+			<key>Start</key>
+			<array>
+				<string>js/jquery-1.6.1.min.js</string>
+				<string>js/jquery-ui-1.8.13.custom.min.js</string>
+				<string>js/jquery.scrollTo-1.4.2-min.js</string>
+			</array>
+		</dict>
+	</dict>
+	<key>Description</key>
+	<string>Uses the ChEMBL database to display an image of the selected compound with a link to its ChEMBL page</string>
+	<key>ExtensionInfoDictionaryVersion</key>
+	<string>1.0</string>
+	<key>Permissions</key>
+	<dict>
+		<key>Website Access</key>
+		<dict>
+			<key>Include Secure Pages</key>
+			<true/>
+			<key>Level</key>
+			<string>All</string>
+		</dict>
+	</dict>
+	<key>Update Manifest URL</key>
+	<string>http://www.macosxtips.co.uk/extensions/chembl.plist</string>
+	<key>Website</key>
+	<string>http://www.macosxtips.co.uk/extensions</string>
+</dict>
+</plist>
