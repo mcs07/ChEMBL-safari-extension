@@ -56,7 +56,7 @@ function openWindow(msg) {
 					}});
 				}},
 				{text: 'View', 'class':'__chembl-dialog-button-view', click: function() {
-					location.href = 'https://www.ebi.ac.uk/chembldb/index.php/compound/inspect/'+$(this).prev().children().eq(0).text();
+					safari.self.tab.dispatchMessage('openPage', $(this).prev().children().eq(0).text());
 				}},
 				{text: 'Next', 'class':'__chembl-dialog-button-next', click: function() {
 					$(this).scrollTo({top:0, left:'+=134'}, 400, {onAfter:function(){

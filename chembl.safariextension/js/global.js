@@ -45,6 +45,29 @@ function validateCommand(event) {
 	event.target.title = 'Search for "'+contextText+'" on ChEMBL'; 
 }
 
-const app = safari.application;
+function handleMessage(msg) {
+	if (msg.name === 'openPage') {
+		var url = 'https://www.ebi.ac.uk/chembldb/index.php/compound/inspect/'+msg.message;
+		switch (ext.settings.resultsType) {
+		case 'foreground':
+			app.activeBrowserWindow.openTab('foreground').url = url;
+			break;
+		case 'background':
+			app.activeBrowserWindow.openTab('background').url = url;
+			break;
+		case 'new':
+			app.openBrowserWindow();
+			app.activeBrowserWindow.activeTab.url = url;
+			break;
+		case 'current':
+			app.activeBrowserWindow.activeTab.url = url;
+			break;
+		}
+	}
+}
+
+const app = safari.application,
+	  ext  = safari.extension;
 app.addEventListener('command', performCommand, false);
 app.addEventListener('validate', validateCommand, false);
+app.addEventListener('message', handleMessage, false);
