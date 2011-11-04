@@ -17,14 +17,13 @@ function performCommand(event) {
 function parseResults(url) {
 	$.get(url, function(data) {
 		var idsArray = new Array();
-		var images = $(data).find('img[src*="/chembldb/index.php/compound/displayimage/"]');
+		var images = $(data).find('img[src*="/chembldb/compound/displayimage/"]');
 		$(images).each(function() {
     		var src = $(this).attr('src').split('/'),
     			imgId = src[src.length-1],
     			chemblId = $(this).nextAll('a').eq(0).html().substr(6);
 				idsArray.push({imgId:imgId, chemblId:chemblId});
 		});
-		console.log(idsArray);
 		app.activeBrowserWindow.activeTab.page.dispatchMessage('searchResults', idsArray);
 	});
 }
