@@ -1,12 +1,25 @@
+/* Reset */
+.__chembl-dialog, .__chembl-dialog * {
+	-webkit-user-select: none !important;
+	background: transparent !important;
+	border: 0 !important;
+	border-radius: 0 !important;
+	color: #222 !important;
+	font-family: Verdana, Arial, sans-serif !important;
+	font-size: 11px !important;
+	line-height: 12px !important;
+	margin:  0 !important;
+	padding: 0 !important;
+}
+
+
 .ui-helper-clearfix:after { content: "."; display: block; height: 0; clear: both; visibility: hidden; }
 .ui-helper-clearfix { display: inline-block; }
 * html .ui-helper-clearfix { height:1%; }
 .ui-helper-clearfix { display:block; }
 
 .__chembl-dialog {
-	-webkit-user-select: none !important;
-	-webkit-box-shadow: 0 0 15px rgba(0,0,0,0.5) !important;
-	background-color: #fff !important;
+	-webkit-box-shadow: 0 0 20px rgba(0,0,0,0.5) !important;
 	background: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#fff), to(#f5f5f5)) !important;
 	border: 1px solid #aaa !important;
 	border-radius: 5px !important;
@@ -14,7 +27,7 @@
 	font-family: Verdana, Arial, sans-serif !important;
 	font-size: 11px !important;
 	line-height: 12px !important;
-	margin:  0px !important;
+	margin:  0 !important;
 	overflow: hidden !important;
 	padding:  2px !important;
 }
@@ -27,14 +40,13 @@
 	cursor: move !important;
 	display: block !important;
 	font-weight: bold !important;
-	margin: 0px !important;
+	margin: 0 !important;
 	padding: 4px 8px !important;
 	position: relative !important;
 }
 
 .__chembl-dialog-title {
-	background-color: transparent !important;
-	background-image: none !important;
+	background: transparent !important;
 	border: 0 !important;
 	color: #444644 !important;
 	font-family: Verdana, Arial, sans-serif !important;
@@ -48,8 +60,7 @@
 }
 
 .__chembl-dialog-titlebar-close {
-	background-color: transparent !important;
-	background-image: none !important;
+	background: transparent !important;
 	border: 0 !important;
 	border-radius: 4px !important;
 	color: #222 !important;
@@ -102,7 +113,7 @@
 }
 
 .__chembl-dialog-content {
-	background-color: #fff !important;
+	background: #fff !important;
 	border: 1px solid #ccc !important;
 	border-radius: 4px !important;
 	cursor: auto !important;
@@ -176,11 +187,11 @@
 }
 
 .__chembl-dialog-button-prev, .__chembl-dialog-button-next {
-	background-color: transparent !important;
+	background: transparent !important;
 	background-repeat: no-repeat !important;
 	border: 0 !important;
 	height: 16px !important;
-	margin: 0px !important;
+	margin: 0 !important;
 	overflow: hidden !important;
 	padding: 1px !important;
 	text-indent: -99999px !important;

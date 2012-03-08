@@ -5,7 +5,7 @@
 	<key>Author</key>
 	<string>Matt Swain</string>
 	<key>Builder Version</key>
-	<string>7534.51.22</string>
+	<string>7535.18.5</string>
 	<key>CFBundleDisplayName</key>
 	<string>ChEMBL Search</string>
 	<key>CFBundleIdentifier</key>
@@ -42,7 +42,7 @@
 			</array>
 			<key>Start</key>
 			<array>
-				<string>js/jquery-1.6.1.min.js</string>
+				<string>js/jquery-1.7.1.min.js</string>
 				<string>js/jquery-ui-1.8.13.custom.min.js</string>
 				<string>js/jquery.scrollTo-1.4.2-min.js</string>
 			</array>

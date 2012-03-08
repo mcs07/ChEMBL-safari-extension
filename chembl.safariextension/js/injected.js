@@ -17,7 +17,6 @@ function handleMessage(msg) {
 
 function openWindow(msg) {
 	var imgString = '';
-	console.log(msg);
 	if (window !== window.top) 
 		return;
 	if ($('link[href^="safari-extension://com.macosxtips.chembl"][href$="css/chembl.css"]').length == 0) {
