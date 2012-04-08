@@ -9,7 +9,7 @@
 	<key>CFBundleDisplayName</key>
 	<string>ChEMBL Search</string>
 	<key>CFBundleIdentifier</key>
-	<string>com.macosxtips.chembl</string>
+	<string>com.matt-swain.chembl</string>
 	<key>CFBundleInfoDictionaryVersion</key>
 	<string>6.0</string>
 	<key>CFBundleShortVersionString</key>
@@ -63,8 +63,8 @@
 		</dict>
 	</dict>
 	<key>Update Manifest URL</key>
-	<string>http://www.macosxtips.co.uk/extensions/chembl.plist</string>
+	<string>http://assets.matt-swain.com/extensions/chembl.plist</string>
 	<key>Website</key>
-	<string>http://www.macosxtips.co.uk/extensions</string>
+	<string>http://matt-swain.com/extensions</string>
 </dict>
 </plist>
