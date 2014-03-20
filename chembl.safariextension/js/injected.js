@@ -37,12 +37,6 @@ function showLoading(id) {
 }
 
 function displayResult(msg) {
-	console.log('displayResult');
-
-	// Save: https://www.ebi.ac.uk/chembl/download_helper/getmol/<regno>
-	// View: https://www.ebi.ac.uk/chembl/compound/inspect/<chemblid>
-	// Img: https://www.ebi.ac.uk/chembl/compound/displayimage/<regno>
-
     var dialog = $('#'+msg.id);
     $('div.cssse-spinner', dialog).fadeOut(function() {
     	console.log(msg.results);
@@ -54,7 +48,6 @@ function displayResult(msg) {
 		            $('.cssse-slider', $(this).parent()).scrollTo({top:0, left:'-=175'}, 400);
 		        }).appendTo(dialog);
 		    }
-            //$('.title', dialog).eq(0).html('CID <span class="cid">'+msg.results[0].cid+'</span>');
             var slider = $('<div class="cssse-slider" />');
             $.each(msg.results.aaData, function(i, result) {
             	var title = result[1];
@@ -64,8 +57,6 @@ function displayResult(msg) {
         				title += ': '+ names[0];
         			}
             	}
-
-
                 var img = $('<img src="https://www.ebi.ac.uk/chembl/compound/displayimage/'+result[0]+'" title="'+title+'">'),
                     save = $('<button type="button" title="Save MOL file for '+result[1]+'" class="cssse-save">Save</button>'),
                     view = $('<button type="button" title="View record page for '+result[1]+'" class="cssse-view">View</button>'),
@@ -91,59 +82,6 @@ function displayResult(msg) {
         }
     });
 }
-
-// function openWindow(msg) {
-// 	var imgString = '';
-// 	if (window !== window.top)
-// 		return;
-// 	if ($('link[href^="safari-extension://com.macosxtips.chembl"][href$="css/chembl.css"]').length == 0) {
-// 		$('<link rel="stylesheet" href="'+safari.extension.baseURI+'css/chembl.css">').appendTo('head');
-// 	}
-// 	var $popupDiv = $('<div/>').appendTo('body');
-// 	if (msg.length < 1) {
-// 		$('<div>No Results Found</div>').appendTo($popupDiv);
-// 		$popupDiv.dialog({
-// 			position: [locX,locY],
-// 			minWidth: 128,
-// 			minHeight: 176,
-// 			width: 136,
-// 			title: 'Error',
-// 			buttons: [
-// 				{text: 'Close', 'class':'__chembl-dialog-button-view', click: function() {
-// 					$(this).dialog("close");
-// 				}},
-// 			]
-// 		});
-// 	} else {
-// 		$.each(msg, function(i, idObj) {
-// 			imgString += '<img src="https://www.ebi.ac.uk/chembldb/index.php/compound/displayimage/'+idObj.imgId+'">'
-// 		});
-// 		$(imgString).appendTo($popupDiv);
-// 		$popupDiv.dialog({
-// 			position: [locX,locY],
-// 			minWidth: 128,
-// 			minHeight: 176,
-// 			width: 136,
-// 			title: 'CHEMBL'+msg[0].chemblId,
-// 			buttons: [
-// 				{text: 'Prev', 'class':'__chembl-dialog-button-prev', click: function() {
-// 					$(this).scrollTo({top:0, left:'-=134'}, 400, {onAfter:function(){
-// 						$(this).dialog('option', 'title', 'CHEMBL'+msg[$(this).scrollLeft()/134].chemblId);
-// 					}});
-// 				}},
-// 				{text: 'View', 'class':'__chembl-dialog-button-view', click: function() {
-// 					safari.self.tab.dispatchMessage('openPage', $(this).prev().children().eq(0).text());
-// 				}},
-// 				{text: 'Next', 'class':'__chembl-dialog-button-next', click: function() {
-// 					$(this).scrollTo({top:0, left:'+=134'}, 400, {onAfter:function(){
-// 						$(this).dialog('option', 'title', 'CHEMBL'+msg[$(this).scrollLeft()/134].chemblId);
-// 					}});
-// 				}},
-// 			]
-// 		});
-// 	}
-// }
-
 
 // Draggable code
 (function($) {
