@@ -1,52 +1,34 @@
 function performCommand(event) {
-	if (event.command !== 'chemblSearch')
-		return;
-	var searchUrl = 'https://www.ebi.ac.uk/chembldb/index.php/compound/keyword',
-		query = event.userInfo;
-	$.post(searchUrl, {keyword: query }, function(data) {
-		$(data).find('results').each(function(){  
- 			var $results = $(this);
- 			var url = $results.find('url').text();  
- 			url = url.replace(/:/g,"/");
- 			url = 'https://www.ebi.ac.uk/chembldb/index.php'+url;
- 			parseResults(url);
- 		});
-	},'xml');
-}
-
-function parseResults(url) {
-	$.get(url, function(data) {
-		var idsArray = new Array();
-		var images = $(data).find('img[src*="/chembldb/compound/displayimage/"]');
-		$(images).each(function() {
-    		var src = $(this).attr('src').split('/'),
-    			imgId = src[src.length-1],
-    			chemblId = $(this).nextAll('a').eq(0).html().substr(6);
-				idsArray.push({imgId:imgId, chemblId:chemblId});
-		});
-		app.activeBrowserWindow.activeTab.page.dispatchMessage('searchResults', idsArray);
+	if (event.command !== 'chembl') return;
+	var id = 'chembl-safari-extension-' + Date.now();
+	app.activeBrowserWindow.activeTab.page.dispatchMessage('showLoading', id);
+	$.post(kurl, {keyword: event.userInfo}, function() {
+		$.get(durl, dparams, function(data) {
+			msg = {'id': id, 'results': data};
+			app.activeBrowserWindow.activeTab.page.dispatchMessage('searchResults', msg);
+		}, 'json');
 	});
 }
 
-function validateCommand(event) {
-	var contextText = event.userInfo;
-	if (event.command !== 'chemblSearch' || contextText===undefined) {
+function validateCommand(e) {
+	var selection = e.userInfo;
+	if (e.command !== 'chembl' || selection === undefined) {
 		return;
 	}
-	if (contextText.length == 0 || !contextText) {
-		event.target.disabled = true;
+	// Only show ChEMBL context menu item if there is some selected text
+	if (selection.length == 0 || !selection) {
+		e.target.disabled = true;
 	}
-	if (contextText.length > 25) {
-		contextText = contextText.substr(0,25);
-		contextText = contextText.replace(/^\s+|\s+$/g,'');
-		contextText = contextText + '...'
+	// Truncate the menu item text if the selection is over 25 characters
+	if (selection.length > 25) {
+		selection = selection.substr(0, 25).replace(/^\s+|\s+$/g,'') + '...';
 	}
-	event.target.title = 'Search for "'+contextText+'" on ChEMBL'; 
+	e.target.title = 'Search for "'+selection+'" on ChEMBL';
 }
 
 function handleMessage(msg) {
-	if (msg.name === 'openPage') {
-		var url = 'https://www.ebi.ac.uk/chembldb/index.php/compound/inspect/'+msg.message;
+	if (msg.name === 'viewCompound') {
+		var url = 'https://www.ebi.ac.uk/chembl/compound/inspect/'+msg.message;
 		switch (ext.settings.resultsType) {
 		case 'foreground':
 			app.activeBrowserWindow.openTab('foreground').url = url;
@@ -67,6 +49,19 @@ function handleMessage(msg) {
 
 const app = safari.application,
 	  ext  = safari.extension;
+var kurl = 'https://www.ebi.ac.uk/chembldb/index.php/compound/keyword',
+	durl = 'https://www.ebi.ac.uk/chembl/compound/data',
+	dparams = {
+		sEcho: 1, iColumns: 22, iDisplayStart: 0, iDisplayLength: 10, mDataProp_0: 0, mDataProp_1: 1, mDataProp_2: 2,
+		mDataProp_3: 3, mDataProp_4: 4, mDataProp_5: 5, mDataProp_6: 6, mDataProp_7: 7, mDataProp_8: 8, mDataProp_9: 9,
+		mDataProp_10: 10, mDataProp_11: 11, mDataProp_12: 12, mDataProp_13: 13, mDataProp_14: 14, mDataProp_15: 15,
+		mDataProp_16: 16, mDataProp_17: 17, mDataProp_18: 18, mDataProp_19: 19, mDataProp_20: 20, mDataProp_21: 21,
+		iSortCol_0: 0, sSortDir_0: 'asc', iSortingCols: 1, bSortable_0: true, bSortable_1: true, bSortable_2: true,
+		bSortable_3: true, bSortable_4: true, bSortable_5: true, bSortable_6: true, bSortable_7: true,
+		bSortable_8: true, bSortable_9: true, bSortable_10: true, bSortable_11: true, bSortable_12: true,
+		bSortable_13: true, bSortable_14: true, bSortable_15: true, bSortable_16: true, bSortable_17: true,
+		bSortable_18: true, bSortable_19: true, bSortable_20: true, bSortable_21: false
+};
 app.addEventListener('command', performCommand, false);
 app.addEventListener('validate', validateCommand, false);
 app.addEventListener('message', handleMessage, false);
