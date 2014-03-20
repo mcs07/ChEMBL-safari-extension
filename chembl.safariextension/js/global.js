@@ -1,8 +1,8 @@
-function performCommand(event) {
-	if (event.command !== 'chembl') return;
+function performCommand(e) {
+	if (e.command !== 'chembl') return;
 	var id = 'chembl-safari-extension-' + Date.now();
 	app.activeBrowserWindow.activeTab.page.dispatchMessage('showLoading', id);
-	$.post(kurl, {keyword: event.userInfo}, function() {
+	$.post(kurl, {keyword: e.userInfo}, function() {
 		$.get(durl, dparams, function(data) {
 			msg = {'id': id, 'results': data};
 			app.activeBrowserWindow.activeTab.page.dispatchMessage('searchResults', msg);
